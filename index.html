@@ -9,6 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Планер">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png">
+
 <title>Планер</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,33 +31,8 @@
   --plate-sh:0 7px 20px rgba(77,61,38,.13),inset 0 1px 4px rgba(255,255,255,.5),inset 0 -1px 9px rgba(94,69,38,.04);
   --card-sh:0 20px 34px -12px rgba(120,104,82,.16),inset 0 4px 6px rgba(255,255,255,.5),inset 0 -9px 14px rgba(160,130,90,.05);
   --ink-row:#1a211f; --ink-time:#404745; --ink-sub:#6e6558; --rail-line:#d6ded8;
-  /* энергоселектор */
-  --en-bg:linear-gradient(180deg,rgba(255,253,249,.94),rgba(248,240,230,.88) 55%,rgba(237,225,210,.82)),
-          linear-gradient(180deg,rgba(255,255,255,.42),rgba(255,255,255,.06) 40%,rgba(157,127,88,.05));
-  --en-line:rgba(255,255,255,.78);
-  --en-sh:0 18px 34px -10px rgba(120,104,82,.18),inset 0 2px 2px rgba(255,255,255,.5),inset 0 -7px 12px rgba(150,120,80,.06);
-  --seg-bg:linear-gradient(180deg,rgba(255,253,249,.91),rgba(246,238,228,.84) 58%,rgba(234,220,203,.78)),
-           linear-gradient(180deg,rgba(255,255,255,.46),rgba(255,255,255,.02) 48%,rgba(142,112,76,.05));
-  --seg-line:rgba(255,255,255,.82);
-  --seg-sh:0 2px 7px rgba(122,98,67,.09),inset 0 1px 2px rgba(255,255,255,.58),inset 0 -1px 5px rgba(114,89,57,.05);
-  --seg-ink:#4a5450; --en-prompt:#27312d;
-  --cta2-bg:linear-gradient(180deg,#fefaf3,#fbf3e6 56%,#f8ecda);
-  --cta2-line:rgba(189,148,92,.10); --cta2-ink:#3f4a45;
-  --cta2-sh:0 4px 10px rgba(92,64,31,.11),inset 0 1px 3px rgba(255,255,255,.42),inset 0 -1px 5px rgba(79,51,18,.07);
 }
 html[data-theme=dark]{
-  --en-bg:linear-gradient(180deg,rgba(38,54,46,.92),rgba(23,36,31,.9) 55%,rgba(14,23,19,.92)),
-          linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.01) 40%,rgba(0,0,0,.1));
-  --en-line:rgba(214,237,222,.13);
-  --en-sh:0 18px 34px -10px rgba(0,0,0,.42),inset 0 1px 2px rgba(255,255,255,.08),inset 0 -6px 12px rgba(0,0,0,.2);
-  --seg-bg:linear-gradient(180deg,rgba(40,57,48,.94),rgba(26,40,34,.9) 58%,rgba(17,27,22,.92)),
-           linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.01) 48%,rgba(0,0,0,.1));
-  --seg-line:rgba(214,237,222,.12);
-  --seg-sh:0 2px 7px rgba(0,0,0,.3),inset 0 1px 2px rgba(255,255,255,.07),inset 0 -1px 5px rgba(0,0,0,.16);
-  --seg-ink:#c2c9c3; --en-prompt:#F4F1E8;
-  --cta2-bg:linear-gradient(180deg,rgba(79,59,33,.92),rgba(59,43,26,.9) 56%,rgba(41,31,19,.92));
-  --cta2-line:rgba(189,148,92,.22); --cta2-ink:#F0E6D6;
-  --cta2-sh:0 4px 10px rgba(0,0,0,.3),inset 0 1px 3px rgba(255,255,255,.08),inset 0 -1px 5px rgba(0,0,0,.2);
   --plate-bg:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.01) 56%,rgba(0,0,0,.04)),rgba(22,35,28,.66);
   --plate-line:rgba(255,255,255,.09);
   --plate-sh:0 7px 20px rgba(0,0,0,.34),inset 0 1px 3px rgba(255,255,255,.07),inset 0 -1px 8px rgba(0,0,0,.18);
@@ -73,18 +49,6 @@ html[data-theme=dark]{
 }
 @media (prefers-color-scheme:dark){
   html:not([data-theme=light]) {
-  --en-bg:linear-gradient(180deg,rgba(38,54,46,.92),rgba(23,36,31,.9) 55%,rgba(14,23,19,.92)),
-          linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.01) 40%,rgba(0,0,0,.1));
-  --en-line:rgba(214,237,222,.13);
-  --en-sh:0 18px 34px -10px rgba(0,0,0,.42),inset 0 1px 2px rgba(255,255,255,.08),inset 0 -6px 12px rgba(0,0,0,.2);
-  --seg-bg:linear-gradient(180deg,rgba(40,57,48,.94),rgba(26,40,34,.9) 58%,rgba(17,27,22,.92)),
-           linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.01) 48%,rgba(0,0,0,.1));
-  --seg-line:rgba(214,237,222,.12);
-  --seg-sh:0 2px 7px rgba(0,0,0,.3),inset 0 1px 2px rgba(255,255,255,.07),inset 0 -1px 5px rgba(0,0,0,.16);
-  --seg-ink:#c2c9c3; --en-prompt:#F4F1E8;
-  --cta2-bg:linear-gradient(180deg,rgba(79,59,33,.92),rgba(59,43,26,.9) 56%,rgba(41,31,19,.92));
-  --cta2-line:rgba(189,148,92,.22); --cta2-ink:#F0E6D6;
-  --cta2-sh:0 4px 10px rgba(0,0,0,.3),inset 0 1px 3px rgba(255,255,255,.08),inset 0 -1px 5px rgba(0,0,0,.2);
   --plate-bg:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.01) 56%,rgba(0,0,0,.04)),rgba(22,35,28,.66);
   --plate-line:rgba(255,255,255,.09);
   --plate-sh:0 7px 20px rgba(0,0,0,.34),inset 0 1px 3px rgba(255,255,255,.07),inset 0 -1px 8px rgba(0,0,0,.18);
@@ -118,16 +82,21 @@ body::after{width:300px;height:300px;left:-110px;bottom:120px;background:radial-
 
 .app{position:relative;z-index:1;width:100%;max-width:430px;margin:0 auto;padding:0 14px 130px;min-height:100%}
 @media (min-width:520px){
-  body{background:var(--bg-c)}
+  body{background:#e8e2d8}
   html[data-theme=dark] body,
   body:has(#app){min-height:100vh}
   .app{max-width:430px;box-shadow:0 0 0 1px rgba(0,0,0,.06)}
 }
 header{padding:calc(env(safe-area-inset-top) + 18px) 6px 6px}
+html.tg header{padding-top:14px}
+html.tg .hero{padding-top:10px}
+html.tg body::before,html.tg body::after{opacity:.6}
+html.tg .app{padding-bottom:120px}
 h1{font-size:30px;font-weight:600;letter-spacing:-.02em;margin:0}
 .sub{color:var(--ink-2);font-size:13.5px;margin:6px 0 0}
 
 /* энергия */
+.energy{display:flex;gap:8px;margin:18px 0 8px}
 .energy button{
   flex:1;border:0;padding:13px 6px;border-radius:20px;font:500 12.5px Onest,sans-serif;
   color:var(--ink-2);background:var(--card);border:1px solid var(--card-line);
@@ -251,20 +220,26 @@ nav{position:fixed;left:0;right:0;bottom:0;z-index:5;
 
 /* энергоселектор: 406x92 @12,182 r28 */
 .energy{position:relative;margin:8px -6px 0;padding:5px 8px 8px;height:92px;border-radius:28px;
-  background:var(--en-bg);
-  border:.9px solid var(--en-line);
+  background:linear-gradient(180deg,rgba(255,253,249,.94),rgba(248,240,230,.88) 55%,rgba(237,225,210,.82)),
+             linear-gradient(180deg,rgba(255,255,255,.42),rgba(255,255,255,.06) 40%,rgba(157,127,88,.05));
+  border:.9px solid rgba(255,255,255,.78);
   backdrop-filter:blur(20px);
-  box-shadow:var(--en-sh);
+  box-shadow:0 18px 34px -10px rgba(120,104,82,.18),
+             inset 0 2px 2px rgba(255,255,255,.5),
+             inset 0 -7px 12px rgba(150,120,80,.06);
   display:block}
-.energy .prompt{font:600 14px Onest,sans-serif;color:var(--en-prompt);text-align:center;margin:0 0 9px;line-height:17px}
+.energy .prompt{font:600 14px Onest,sans-serif;color:#27312d;text-align:center;margin:0 0 9px;line-height:17px}
 .energy .segs{display:flex;gap:6px;height:48px}
 .energy button{position:relative;flex:1;height:48px;border-radius:24px;
-  font:500 11.5px Onest,sans-serif;line-height:13px;color:var(--seg-ink);cursor:pointer;
+  font:500 11.5px Onest,sans-serif;line-height:13px;color:#4a5450;cursor:pointer;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   padding:5px 4px 6px;gap:4px;
-  background:var(--seg-bg);
-  border:.8px solid var(--seg-line);
-  box-shadow:var(--seg-sh)}
+  background:linear-gradient(180deg,rgba(255,253,249,.91),rgba(246,238,228,.84) 58%,rgba(234,220,203,.78)),
+             linear-gradient(180deg,rgba(255,255,255,.46),rgba(255,255,255,.02) 48%,rgba(142,112,76,.05));
+  border:.8px solid rgba(255,255,255,.82);
+  box-shadow:0 2px 7px rgba(122,98,67,.09),
+             inset 0 1px 2px rgba(255,255,255,.58),
+             inset 0 -1px 5px rgba(114,89,57,.05)}
 .energy button[aria-pressed=true]{color:#fff;font-weight:600;
   background:linear-gradient(180deg,#287c5e,#0f5d45 50%,#073a2b),
              linear-gradient(180deg,rgba(199,245,223,.28),rgba(255,255,255,.04) 42%,rgba(0,27,19,.18));
@@ -283,7 +258,7 @@ nav{position:fixed;left:0;right:0;bottom:0;z-index:5;
 .energy .ico{width:19px;height:19px;stroke-width:1.5;fill:none;opacity:1;flex:none}
 .energy .ico[viewBox="0 0 20 10"]{width:22px;height:11px}
 .energy button[aria-pressed=true] .ico{stroke:rgba(255,255,255,.97)}
-.energy button:not([aria-pressed=true]) .ico{stroke:var(--em);opacity:.9}
+.energy button:not([aria-pressed=true]) .ico{stroke:rgba(42,106,84,.92)}
 
 /* главная карточка: пропорции 402x164 из макета */
 .maincard{position:relative;min-height:164px;border-radius:22px;margin:14px 0 0;padding:14px 16px 16px;
@@ -310,13 +285,36 @@ nav{position:fixed;left:0;right:0;bottom:0;z-index:5;
   display:flex;align-items:center;justify-content:center;gap:6px;overflow:hidden}
 .maincard .cta1 .gloss{left:25px;top:-7px;width:78px;height:31px;background:rgba(199,255,233,.05)}
 .maincard .cta2{width:128px;height:40px;border-radius:20px;flex:none;
-  border:.5px solid var(--cta2-line);font:600 13px Onest,sans-serif;color:var(--cta2-ink);cursor:pointer;
-  background:var(--cta2-bg);
-  box-shadow:var(--cta2-sh);
+  border:.5px solid rgba(189,148,92,.10);font:600 13px Onest,sans-serif;color:#3f4a45;cursor:pointer;
+  background:linear-gradient(180deg,#fefaf3,#fbf3e6 56%,#f8ecda);
+  box-shadow:0 4px 10px rgba(92,64,31,.11),inset 0 1px 3px rgba(255,255,255,.42),inset 0 -1px 5px rgba(79,51,18,.07);
   display:flex;align-items:center;justify-content:center;gap:6px;overflow:hidden}
 .maincard .cta2 .gloss{left:13px;top:-7px;width:66px;height:22px;background:rgba(255,255,255,.09);filter:blur(14px)}
 .mclock{width:14px;height:14px;flex:none;opacity:.9}
 
+@media (prefers-color-scheme:dark){
+  html:not([data-theme=light]) .energy{
+    background:linear-gradient(180deg,rgba(38,54,46,.92),rgba(23,36,31,.88) 55%,rgba(14,23,19,.92));
+    border-color:rgba(214,237,222,.14);
+    box-shadow:0 18px 34px -10px rgba(0,0,0,.4),inset 0 1px 3px rgba(255,255,255,.1)}
+  html:not([data-theme=light]) .energy .prompt{color:#F4F1E8}
+  html:not([data-theme=light]) .energy button{
+    background:linear-gradient(180deg,rgba(38,54,46,.92),rgba(23,36,31,.88) 55%,rgba(14,23,19,.92));
+    border-color:rgba(214,237,222,.14);color:#c2c9c3}
+  html:not([data-theme=light]) .maincard{
+    background-color:rgba(22,35,28,.72);border-color:rgba(255,255,255,.08);
+    box-shadow:0 20px 34px -12px rgba(0,0,0,.42),inset 0 1px 2px rgba(255,255,255,.08)}
+  html:not([data-theme=light]) .maincard .ttl{color:#F4F1E8}
+  html:not([data-theme=light]) .maincard .eyebrow,
+  html:not([data-theme=light]) .maincard .step{color:#9AA49E}
+  html:not([data-theme=light]) .maincard .meta{color:#b6c1bc}
+  html:not([data-theme=light]) .maincard .cta2{
+    background:linear-gradient(180deg,rgba(79,59,33,.9),rgba(59,43,26,.9) 55%,rgba(41,31,19,.9));
+    border-color:rgba(189,148,92,.2);color:#F4F1E8}
+}
+html[data-theme=dark] .energy{background:linear-gradient(180deg,rgba(38,54,46,.92),rgba(23,36,31,.88) 55%,rgba(14,23,19,.92));border-color:rgba(214,237,222,.14)}
+html[data-theme=dark] .energy .prompt{color:#F4F1E8}
+html[data-theme=dark] .energy button{background:linear-gradient(180deg,rgba(38,54,46,.92),rgba(23,36,31,.88) 55%,rgba(14,23,19,.92));border-color:rgba(214,237,222,.14);color:#c2c9c3}
 html[data-theme=dark] .maincard{background-color:rgba(22,35,28,.72);border-color:rgba(255,255,255,.08)}
 html[data-theme=dark] .maincard .ttl{color:#F4F1E8}
 html[data-theme=dark] .maincard .eyebrow,html[data-theme=dark] .maincard .step{color:#9AA49E}
@@ -386,8 +384,21 @@ button:active,.row:active,.frow:active,.chip:active,.wday:active{transform:scale
 .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:56px;
   background:linear-gradient(to top, var(--bg-b), transparent);pointer-events:none}
 .hero > *{position:relative;z-index:1}
-.hero .hh{display:flex;align-items:flex-end;gap:12px}
+.hero .hh{display:flex;align-items:flex-start;gap:14px}
 .hero .hl{flex:1;min-width:0}
+.miro{width:78px;height:86px;flex:none;border-radius:20px;position:relative;
+  background:radial-gradient(circle at 40% 34%,
+    color-mix(in srgb,var(--em) 34%,transparent),
+    color-mix(in srgb,var(--em) 8%,transparent) 62%, transparent 74%);
+  background-size:cover;background-position:center top;background-repeat:no-repeat}
+.miro.has{background-color:transparent}
+.miro::after{content:"";position:absolute;inset:-5px;border-radius:24px;
+  border:1.4px solid color-mix(in srgb,var(--em) 26%,transparent);
+  animation:breathe 5s ease-in-out infinite}
+.miro.sm{width:44px;height:48px;border-radius:14px}
+.miro.sm::after{inset:-3px;border-radius:17px}
+.miro.lg{width:132px;height:146px;border-radius:30px;margin:0 auto}
+.miro.lg::after{inset:-7px;border-radius:36px}
 .mood{display:flex;align-items:center;gap:7px;margin-top:6px;font-size:13px;color:var(--ink-2)}
 .mood i{width:8px;height:8px;border-radius:50%;background:var(--em);flex:none}
 .say{background:var(--card);border:1px solid var(--card-line);border-radius:18px 18px 18px 6px;
@@ -444,6 +455,11 @@ button:active,.row:active,.frow:active,.chip:active,.wday:active{transform:scale
 .wheelbox{position:relative;margin:2px auto 4px;max-width:100%}
 .wheelbox svg{overflow:visible}
 .wheel{display:block}
+.wcore{position:absolute;left:50%;top:50%;width:17%;height:19%;transform:translate(-50%,-52%);
+  background-size:contain;background-position:center;background-repeat:no-repeat;
+  border-radius:50%}
+.wcore:not([style*=url]){background:radial-gradient(circle at 42% 36%,
+  color-mix(in srgb,var(--em) 34%,transparent),color-mix(in srgb,var(--em) 8%,transparent) 66%,transparent)}
 .whint{text-align:center;font:400 12px Onest,sans-serif;color:var(--ink-2);margin:2px 0 10px}
 .plegend{display:flex;flex-direction:column;gap:9px;margin:8px 4px 0}
 .pl{display:flex;align-items:center;gap:10px}
@@ -472,7 +488,7 @@ button:active,.row:active,.frow:active,.chip:active,.wday:active{transform:scale
 .wday.sel .load i{background:#fff}
 
 /* совместный фокус */
-.buddy{display:flex;align-items:center;gap:0;background:var(--card);border:1px solid var(--card-line);
+.buddy{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--card-line);
   border-radius:20px;padding:16px;margin:0 0 14px;backdrop-filter:blur(12px);text-align:left}
 .buddy .orb{width:48px;height:48px;border-radius:50%;flex:none;position:relative;
   background:radial-gradient(circle at 35% 30%,color-mix(in srgb,var(--em) 45%,transparent),color-mix(in srgb,var(--em) 10%,transparent))}
@@ -599,8 +615,14 @@ body.dragmode{overflow:hidden;touch-action:none}
 .fbody .opts button[aria-pressed=true]{border-color:var(--em);color:var(--em);font-weight:600;
   background:color-mix(in srgb,var(--em) 12%,transparent)}
 .fbody .hint{color:var(--ink-2);font-size:12.5px;margin:10px 2px 0;line-height:1.4}
-.inp{width:100%;margin-top:8px;padding:13px 14px;border-radius:16px;font:500 16px Onest,sans-serif;
-  border:1px solid var(--card-line);background:color-mix(in srgb,var(--ink) 4%,transparent);color:var(--ink);outline:none}
+.inp{width:100%;margin-top:8px;padding:14px;border-radius:16px;font:500 16px Onest,sans-serif;
+  border:1.4px solid color-mix(in srgb,var(--em) 32%,transparent);
+  background:var(--card);color:var(--ink);outline:none;box-shadow:inset 0 1px 3px rgba(0,0,0,.05)}
+.inp:focus{border-color:var(--em);box-shadow:0 0 0 3px color-mix(in srgb,var(--em) 14%,transparent)}
+.inp[type=date],.inp[type=time]{font-weight:600}
+.inp:disabled{opacity:.45;border-style:dashed}
+.rangebox{display:flex;gap:8px;align-items:center;margin-top:10px}
+.rangebox .lbl{font:600 11px Onest,sans-serif;letter-spacing:.06em;color:var(--ink-2);flex:none;width:20px;text-align:center}
 .inp:focus{border-color:var(--em)}
 .inp[type=date],.inp[type=time]{-webkit-appearance:none;appearance:none;min-height:50px;
   display:block;text-align:left;color-scheme:light dark}
@@ -652,53 +674,6 @@ body.dragmode{overflow:hidden;touch-action:none}
   font:500 14px Onest,sans-serif;opacity:0;pointer-events:none;transition:opacity .2s}
 .toast.show{opacity:.95}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-
-/* ═══ ТЁМНАЯ ТЕМА: всё, что не покрыто переменными ═══ */
-html[data-theme=dark] .energy,
-html.dark-auto .energy{
-  background:linear-gradient(180deg,rgba(38,54,46,.94),rgba(23,36,31,.9) 55%,rgba(14,23,19,.92)),
-             linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.01) 45%,rgba(0,0,0,.06));
-  border-color:rgba(214,237,222,.13);
-  box-shadow:0 18px 34px -10px rgba(0,0,0,.42),
-             inset 0 1px 2px rgba(255,255,255,.09),
-             inset 0 -7px 12px rgba(0,0,0,.2)}
-html[data-theme=dark] .energy .prompt,
-html.dark-auto .energy .prompt{color:#F4F1E8}
-html[data-theme=dark] .energy button,
-html.dark-auto .energy button{
-  background:linear-gradient(180deg,rgba(42,58,50,.9),rgba(26,39,33,.86) 58%,rgba(17,27,22,.84)),
-             linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.01) 48%,rgba(0,0,0,.05));
-  border-color:rgba(214,237,222,.12);color:#b9c2bc;
-  box-shadow:0 2px 7px rgba(0,0,0,.24),inset 0 1px 2px rgba(255,255,255,.07)}
-html[data-theme=dark] .energy button[aria-pressed=true],
-html.dark-auto .energy button[aria-pressed=true]{
-  background:linear-gradient(180deg,#127a5b,#188f6b 50%,#106b50),
-             linear-gradient(180deg,rgba(199,245,223,.2),rgba(255,255,255,.03) 42%,rgba(0,27,19,.2));
-  border-color:rgba(169,226,204,.34);color:#fff;
-  box-shadow:0 3px 11px rgba(0,0,0,.34),inset 0 1px 2px rgba(255,255,255,.22)}
-html[data-theme=dark] .energy button:not([aria-pressed=true]) .ico,
-html.dark-auto .energy button:not([aria-pressed=true]) .ico{stroke:#7fc4ab}
-
-html[data-theme=dark] .stat,
-html.dark-auto .stat{background:var(--card);border-color:var(--card-line)}
-
-html[data-theme=dark] .maincard .cta2,
-html.dark-auto .maincard .cta2{
-  background:linear-gradient(180deg,rgba(74,56,32,.92),rgba(56,42,25,.9) 56%,rgba(40,30,18,.9));
-  border-color:rgba(189,148,92,.24);color:#F0EAE0;
-  box-shadow:0 4px 10px rgba(0,0,0,.3),inset 0 1px 3px rgba(255,255,255,.08)}
-html[data-theme=dark] .maincard .star,
-html.dark-auto .maincard .star{color:#E8942E;opacity:.9}
-
-html[data-theme=dark] .conflict,
-html.dark-auto .conflict{background:rgba(232,168,182,.15);color:#E8A8B6}
-
-html[data-theme=dark] .toast,
-html.dark-auto .toast{background:#F4F1E8;color:#101a15}
-
-html[data-theme=dark] .ring .core,
-html.dark-auto .ring .core{background:radial-gradient(circle at 40% 34%,rgba(46,163,124,.16),transparent 70%),var(--card)}
-
 </style>
 </head>
 <body>
@@ -759,8 +734,7 @@ const Store={
 const DB={
   items:[], captures:[], diary:[], energy:{}, stuck:{}, rewards:[],
   me:'', buddies:[], sessions:[], cal:{on:false,dir:'both',name:'Основной'},
-  portraits:[], theme:'auto', sound:true, soundLog:{}, notifAsked:false,
-  seeded:false, installHintShown:false,
+  portraits:[], theme:'auto', sound:true, alertMode:'sound', soundLog:{}, notifAsked:false, seeded:false,
   async load(){ const d=await Store.get(); if(d) Object.assign(this,d); this.gc(); },
   _t:null,
   save(){ clearTimeout(this._t);
@@ -1144,10 +1118,12 @@ function markSound(){
 }
 async function fireNotif(title,body,{loud=false,tag='planner'}={}){
   if(notifState()!=='granted') return;
-  const silent = !loud || !DB.sound || !soundAllowedToday();
-  if(!silent) markSound();
-  const opts={body,tag,icon:'icon-192.png',badge:'icon-192.png',silent,
-    vibrate: silent?undefined:[40,60,40]};
+  const mode=DB.alertMode||'sound';
+  const wantSound = loud && mode==='sound' && soundAllowedToday();
+  const wantVibro = loud && (mode==='sound'||mode==='vibrate');
+  if(wantSound) markSound();
+  const opts={body,tag,icon:'icon-192.png',badge:'icon-192.png',
+    silent: !wantSound, vibrate: wantVibro?[40,60,40]:undefined};
   try{
     const reg = navigator.serviceWorker && await navigator.serviceWorker.getRegistration();
     if(reg && reg.showNotification) return reg.showNotification(title,opts);
@@ -1271,30 +1247,6 @@ function importICS(text){
   toast(added?`Добавлено ${added} ${added===1?'встреча':added<5?'встречи':'встреч'}`:'Новых встреч нет');
 }
 
-const inTGsafe=()=>{ try{ return !!(window.Telegram&&window.Telegram.WebApp&&window.Telegram.WebApp.initData!==undefined); }catch(e){ return false; } };
-
-function maybeInstallHint(){
-  if(DB.installHintShown) return;
-  const ios = /iphone|ipad|ipod/i.test(navigator.userAgent);
-  openSheet(`<div class="handle"></div>
-    <h2>Добавьте на домашний экран</h2>
-    <p>Сейчас приложение открыто как страница — в этом режиме телефон может стирать данные. С домашнего экрана они хранятся надёжно.</p>
-    <div class="rows">
-      <div class="fbody" style="padding:16px">
-        <p class="hint" style="margin:0">${ios
-          ? '<b>На iPhone</b><br>1. Кнопка «Поделиться» внизу — квадрат со стрелкой вверх<br>2. Пролистайте до «На экран „Домой"»<br>3. «Добавить»<br><br>Открывать нужно именно в Safari — в других браузерах пункта нет.'
-          : '<b>На Android</b><br>1. Меню — три точки справа вверху<br>2. «Установить приложение»<br>3. «Установить»'}</p>
-      </div>
-    </div>
-    <button class="cta" data-ih="ok" style="margin-top:14px">Понятно</button>
-    <button class="ghost" data-ih="never">Больше не показывать</button>
-    <p class="note" style="text-align:left;margin:12px 8px">Пока не установили — делайте копию через Профиль → Данные.</p>`);
-  panel.querySelectorAll('[data-ih]').forEach(b=>b.onclick=()=>{
-    if(b.dataset.ih==='never'){ DB.installHintShown=true; DB.saveNow(); }
-    closeSheet();
-  });
-}
-
 /* ── сохранность данных ── */
 let STORAGE_OK=null;
 async function claimStorage(){
@@ -1333,6 +1285,26 @@ function importData(text){
   toast('Восстановлено: '+DB.items.length+' дел');
 }
 
+/* Миро: картинки подхватываются, если лежат рядом */
+const MIRO={ok:{}, files:{calm:'miro-calm.png',dark:'miro-calm-dark.png',
+  curious:'miro-curious.png',listen:'miro-small.png',room:'room.jpg',roomDark:'room-dark.jpg'}};
+function miroCheck(){
+  for(const [k,f] of Object.entries(MIRO.files)){
+    const img=new Image();
+    img.onload=()=>{ MIRO.ok[k]=f; render(); };
+    img.onerror=()=>{};
+    img.src=f;
+  }
+}
+function miroPick(){
+  const dark = document.documentElement.getAttribute('data-theme')==='dark'
+    || (!document.documentElement.getAttribute('data-theme') && matchMedia('(prefers-color-scheme:dark)').matches);
+  return (dark && MIRO.ok.dark) || MIRO.ok.calm || MIRO.ok.curious || null;
+}
+function miroTag(cls){
+  const f=miroPick();
+  return `<span class="miro ${cls||''}${f?' has':''}"${f?` style="background-image:url('${f}')"`:''}></span>`;
+}
 /* реплика по состоянию дня */
 function miroSay(){
   const e=energyToday(), left=todayFeed().filter(x=>!isDoneToday(x)).length;
@@ -1345,6 +1317,13 @@ function miroSay(){
   return 'План выглядит выполнимым.';
 }
 
+
+const TG=null,inTG=false;
+function tgInit(){}
+function tgBack(){}
+function tgTap(){}
+function applyTgTheme(){}
+
 /* тема */
 function applyTheme(){
   const t=DB.theme||'auto';
@@ -1352,7 +1331,6 @@ function applyTheme(){
   if(t==='auto') html.removeAttribute('data-theme');
   else html.setAttribute('data-theme',t);
   const dark = t==='dark' || (t==='auto' && matchMedia('(prefers-color-scheme:dark)').matches);
-  html.classList.toggle('dark-auto', t==='auto' && dark);
   const m=document.querySelector('meta[name=theme-color]');
   if(m) m.setAttribute('content', dark?'#0A1512':'#F9F2E7');
 }
@@ -1478,13 +1456,13 @@ function viewToday(){
   const capt=DB.captures.filter(c=>!c.processed).length;
 
   return `<div class="hero">
-    <div class="hh" style="display:block">
+    <div class="hh">
       <div class="hl">
         <p class="sub" data-week style="cursor:pointer;margin:0 0 4px">${new Date().toLocaleDateString('ru',{weekday:'long',day:'numeric',month:'long'})} · неделя ›</p>
         <h1 style="margin:0">Сегодня</h1>
-
+        <div class="mood"><i></i>Миро спокоен</div>
       </div>
-      
+      ${miroTag()}
     </div>
     <div class="say">${miroSay()}</div>
   </div>
@@ -1617,8 +1595,8 @@ function sheetEvening(){
       <div class="stat"><i style="background:var(--am)"></i><b>${rel.length}</b><span>отпущено</span></div>
     </div>
 
-    <div class="buddy">
-      <span class="t"><span>${word}</span></span></div>
+    <div class="buddy">${miroTag('sm')}
+      <span class="t"><b>Миро</b><span>${word}</span></span></div>
 
     <div class="label" style="margin:0 4px 8px">ЕСЛИ ХОЧЕТСЯ — ЗАПИШИ</div>
     <input class="field" id="ev-q" placeholder="Что хочешь запомнить? Можно одним словом" autocomplete="off">
@@ -1748,6 +1726,10 @@ function viewMe(){
 
   <div class="label">О СЕБЕ</div>
   <div class="rows">
+    <div class="frow" data-me="home">
+      <span class="body"><span class="tname" style="font-size:15px">Дом Миро</span>
+      <span class="thelp">комната, которая обживается находками</span></span>
+      <span class="v">скоро</span></div>
     <div class="frow" data-me="mirror">
       <span class="body"><span class="tname" style="font-size:15px">Зеркало · портрет сложностей</span>
       <span class="thelp">${p?'Сейчас мешает больше всего: '+top.name.toLowerCase():'Пять вопросов — покажут, что мешает довести дела до конца'}</span></span>
@@ -1775,8 +1757,9 @@ function viewMe(){
     <div class="frow" data-me="theme"><span class="k">Тема</span>
       <span class="v">${DB.theme==='light'?'светлая':DB.theme==='dark'?'тёмная':'как в системе'}</span>
       <span class="c">›</span></div>
-    <div class="frow" data-me="sound"><span class="k">Звук</span>
-      <span class="v${DB.sound?' set':''}">${DB.sound?'включён':'выключен'}</span>
+    <div class="frow" data-me="sound"><span class="k">Напоминания</span>
+      <span class="v${(DB.alertMode||'sound')!=='quiet'?' set':''}">${
+        {sound:'со звуком',vibrate:'вибрация',quiet:'тихо'}[DB.alertMode||'sound']}</span>
       <span class="c">›</span></div>
     <div class="frow" data-cal><span class="k">Календарь</span>
       <span class="v">обмен встречами</span>
@@ -1831,19 +1814,13 @@ function sheetWipe(){
   openSheet(`<div class="handle"></div>
     <h2>Удалить все дела?</h2>
     <p>Исчезнет ${n} ${n===1?'дело':n<5?'дела':'дел'}${c?` и ${c} записей из пойманного`:''} — со всех полок сразу.</p>
-    <div class="rows">
-      <div class="fbody" style="padding:16px"><p class="hint" style="margin:0">
-      Дневник, портрет и настройки останутся. Удалятся только задачи, рутины и встречи.</p></div>
-    </div>
+    <div class="rows"><div class="fbody" style="padding:16px"><p class="hint" style="margin:0">
+      Дневник, портрет и настройки останутся.</p></div></div>
     <button class="ghost warn" data-wipe="yes" style="margin-top:14px">Да, очистить полки</button>
-    <button class="cta" data-wipe="no">Отмена</button>
-    <p class="note" style="text-align:left;margin:12px 8px">Перед очисткой стоит сохранить копию — на случай, если передумаете.</p>`);
+    <button class="cta" data-wipe="no">Отмена</button>`,true);
   panel.querySelectorAll('[data-wipe]').forEach(b=>b.onclick=()=>{
-    if(b.dataset.wipe==='yes'){
-      DB.items=[]; DB.captures=[]; DB.saveNow(); closeSheet(); render(); return toast('Полки пусты');
-    }
-    closeSheet();
-  });
+    if(b.dataset.wipe==='yes'){ DB.items=[]; DB.captures=[]; DB.saveNow(); closeSheet(); render(); return toast('Полки пусты'); }
+    closeSheet(); });
 }
 
 function sheetImport(){
@@ -1869,6 +1846,7 @@ function sheetImport(){
 function sheetHome(){
   const finds=DB.items.filter(x=>x.completedAt).length + DB.items.filter(x=>x.shelf==='released').length;
   openSheet(`<div class="handle"></div>
+    <div style="text-align:center;margin:6px 0 18px">${miroTag('lg')}</div>
     <h2 style="text-align:center">Дом Миро</h2>
     <p style="text-align:center">Комната, которая обживается сама — за прожитые недели, попробованные приёмы и отпущенные дела.</p>
     <div class="rows">
@@ -1919,16 +1897,24 @@ function sheetSound(){
           :st==='unsupported'?'не поддерживаются здесь':'нужно разрешить'}</span></span>
         <span class="v${st==='granted'?' set':''}">${st==='granted'?'вкл':st==='denied'?'выкл':'›'}</span>
       </div>
-      <div class="frow" data-snd="${DB.sound?0:1}">
-        <span class="k">Звук</span>
-        <span class="v${DB.sound?' set':''}">${DB.sound?'включён':'выключен'}</span>
-        <span class="c">›</span></div>
+      </div>
+    <div class="label" style="margin:18px 4px 8px">КАК СИГНАЛИТЬ</div>
+    <div class="rows">
+      ${[['sound','Со звуком','мелодия из настроек телефона + вибрация'],
+         ['vibrate','Только вибрация','беззвучно, но заметно'],
+         ['quiet','Тихо','просто появится в шторке']].map(([v,t2,h])=>`
+        <div class="frow" data-alert="${v}">
+          <span class="body"><span class="tname" style="font-size:15px">${t2}</span>
+          <span class="thelp">${h}</span></span>
+          <span class="v${(DB.alertMode||'sound')===v?' set':''}">${(DB.alertMode||'sound')===v?'выбрано':''}</span>
+        </div>`).join('')}
     </div>
 
     ${st==='granted'?`<p class="note" style="text-align:left;margin:10px 8px">Сегодня прозвучало ${used} из 2.</p>`:''}
 
     <div class="rows" style="margin-top:14px">
       <div class="fbody" style="padding:16px"><p class="hint" style="margin:0">
+        <b>Мелодия</b><br>Играет та, что выбрана в телефоне. Поменять: Настройки → Приложения → Планер → Уведомления → Звук.<br><br>
         <b>Что придёт со звуком</b><br>
         Обещание — за пять минут, с именем того, кто ждёт.<br>
         Встреча с подтверждённым временем — за пять минут.<br>
@@ -1941,8 +1927,8 @@ function sheetSound(){
     ${st==='granted'?`<button class="ghost" data-test>Проверить, как выглядит</button>`:''}
     <p class="note" style="text-align:left;margin:12px 8px">Пока приложение закрыто надолго, напоминание может не прийти — для этого нужен сервер. В сборке для магазина это решится.</p>`);
 
-  panel.querySelectorAll('[data-snd]').forEach(b=>b.onclick=()=>{
-    DB.sound=b.dataset.snd==='1'; DB.save(); sheetSound(); });
+  panel.querySelectorAll('[data-alert]').forEach(b=>b.onclick=()=>{
+    DB.alertMode=b.dataset.alert; DB.sound=DB.alertMode!=='quiet'; DB.saveNow(); sheetSound(); });
   const nb=panel.querySelector('[data-notif]');
   if(nb) nb.onclick=async()=>{
     if(notifState()==='default'){ await askNotif(); rescheduleNotifs(); sheetSound(); }
@@ -2065,9 +2051,10 @@ function renderNow(){
 
 /* ── шторки ── */
 const sheet=document.getElementById('sheet'), panel=document.getElementById('panel');
-const openSheet=html=>{ panel.innerHTML=html; sheet.classList.add('open');
-  const f=panel.querySelector('input,textarea'); if(f) setTimeout(()=>f.focus(),80); };
-const closeSheet=()=>sheet.classList.remove('open');
+const openSheet=(html,noFocus)=>{ panel.innerHTML=html; sheet.classList.add('open'); tgBack(true); tgTap();
+  if(!noFocus){ const f=panel.querySelector('input:not([type=date]):not([type=time]),textarea');
+    if(f) setTimeout(()=>f.focus(),80); } };
+const closeSheet=()=>{ sheet.classList.remove('open'); tgBack(tab!=='today'); };
 
 /* ── универсальная форма создания / разбора ── */
 const nextDay=(n)=>{const d=new Date();d.setDate(d.getDate()+n);return d.toISOString().slice(0,10)};
@@ -2180,6 +2167,16 @@ function formHTML(){
       <p class="hint">Лекарства и подобное — пропуск будет заметен. У обычной рутины пометка тихая.</p>`));
   }
 
+  if(!isEvent){
+    const cur=f.techniqueId?T(f.techniqueId):null;
+    rows.push(row('tech','Приём',cur?cur.name:'подберём сами',!!cur,`
+      <div class="opts"><button data-ft="" aria-pressed="${!f.techniqueId}">Подберём сами</button></div>
+      <div class="opts" style="margin-top:8px">
+        ${TECHNIQUES.map(t=>`<button data-ft="${t.id}" aria-pressed="${f.techniqueId===t.id}">${t.name}</button>`).join('')}
+      </div>
+      <p class="hint">${cur?cur.hint:'Если не выбирать — приложение предложит подходящий, когда дело не пойдёт.'}</p>`));
+  }
+
   rows.push(row('shelf','Куда положить',{active:'В дела',waiting:'Ждёт решения',frozen:'Морозилка'}[f.shelf],true,`
     <div class="opts">
       ${[['active','В дела'],['waiting','Ждёт решения'],['frozen','Морозилка']].map(([v,l])=>
@@ -2221,7 +2218,7 @@ function row(key,label,value,isSet,body){
 function openForm(cfg){
   openRow=null;
   form=Object.assign({mode:'new',type:'capture',title:'',dateMode:'none',dateStart:null,dateEnd:null,
-    timeStart:null,timeEnd:null,promiseTo:'',estimateMinutes:null,shelf:'active',
+    timeStart:null,timeEnd:null,promiseTo:'',estimateMinutes:null,shelf:'active',techniqueId:null,
     repeatDays:[],repeatUntil:null,critical:false},cfg);
   paintForm();
 }
@@ -2232,14 +2229,24 @@ function updateDur(P){
     : (form.type==='event' ? 'У встречи стоит указать и конец — тогда видно, сколько она займёт.'
                            : 'Конец указывать не обязательно.');
 }
-function paintForm(){
-  openSheet(formHTML());
+function syncRow(P,key,value,isSet){
+  const r=P.querySelector(`[data-row="${key}"] .v`);
+  if(!r) return; r.textContent=value; r.classList.toggle('set',!!isSet);
+}
+function paintForm(keepScroll){
+  const sc = keepScroll ? panel.scrollTop : 0;
+  openSheet(formHTML(), keepScroll || form._noFocus);
+  form._noFocus=false;
+  if(sc) panel.scrollTop=sc;
   const P=panel;
   const grab=()=>{ const t=P.querySelector('#f-title'); if(t) form.title=t.value;
     const w=P.querySelector('#f-who'); if(w) form.promiseTo=(w.value||'').trim()||null; };
 
   P.querySelectorAll('[data-row]').forEach(r=>r.onclick=()=>{
-    grab(); openRow = openRow===r.dataset.row ? null : r.dataset.row; paintForm(); });
+    grab(); openRow = openRow===r.dataset.row ? null : r.dataset.row;
+    paintForm(true);
+    const el=panel.querySelector(`[data-row="${openRow}"]`);
+    if(el) setTimeout(()=>el.scrollIntoView({block:'nearest',behavior:'smooth'}),40); });
 
   P.querySelectorAll('[data-type]').forEach(b=>b.onclick=()=>{
     grab(); form.type=b.dataset.type; openRow=null;
@@ -2249,11 +2256,23 @@ function paintForm(){
     if(form.dateMode==='none'){ form.dateStart=null; form.timeStart=null; }
     else if(!form.dateStart) form.dateStart=TODAY();
     paintForm(); });
-  P.querySelectorAll('[data-date]').forEach(b=>b.onclick=e=>{ e.stopPropagation(); grab(); form.dateStart=b.dataset.date; paintForm(); });
+  P.querySelectorAll('[data-date]').forEach(b=>b.onclick=e=>{ e.stopPropagation(); grab();
+    form.dateStart=b.dataset.date;
+    P.querySelectorAll('[data-date]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.date===form.dateStart));
+    const dd=P.querySelector('#f-date'); if(dd) dd.value=form.dateStart;
+    syncRow(P,'when',fmtDate(form.dateStart),true); });
   P.querySelectorAll('[data-time]').forEach(b=>b.onclick=e=>{ e.stopPropagation(); grab();
     form.timeStart=b.dataset.time||null; if(!form.timeStart) form.timeEnd=null; paintForm(); });
   P.querySelectorAll('[data-est]').forEach(b=>b.onclick=e=>{ e.stopPropagation(); grab(); form.estimateMinutes=b.dataset.est?+b.dataset.est:null; paintForm(); });
-  P.querySelectorAll('[data-shelf]').forEach(b=>b.onclick=e=>{ e.stopPropagation(); grab(); form.shelf=b.dataset.shelf; paintForm(); });
+  P.querySelectorAll('[data-ft]').forEach(b=>b.onclick=e=>{ e.stopPropagation(); grab();
+    form.techniqueId=b.dataset.ft||null;
+    P.querySelectorAll('[data-ft]').forEach(x=>x.setAttribute('aria-pressed',(x.dataset.ft||'')===(form.techniqueId||'')));
+    const t=form.techniqueId?T(form.techniqueId):null;
+    syncRow(P,'tech',t?t.name:'подберём сами',!!t); });
+  P.querySelectorAll('[data-shelf]').forEach(b=>b.onclick=e=>{ e.stopPropagation(); grab();
+    form.shelf=b.dataset.shelf;
+    P.querySelectorAll('[data-shelf]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.shelf===form.shelf));
+    syncRow(P,'shelf',{active:'В дела',waiting:'Ждёт решения',frozen:'Морозилка'}[form.shelf],true); });
   const wc=P.querySelector('[data-who-clear]');
   if(wc) wc.onclick=e=>{ e.stopPropagation(); form.promiseTo=null;
     const w=P.querySelector('#f-who'); if(w) w.value=''; paintForm(); };
@@ -2320,6 +2339,7 @@ function paintForm(){
       promiseTo:form.promiseTo||null, estimateMinutes:form.estimateMinutes,
       shelf:form.shelf, origin:form.mode==='sort'?'capture':'manual'
     });
+    if(form.techniqueId) it.techniqueId=form.techniqueId;
     if(form.type==='routine'){
       it.repeatDays=form.repeatDays||[]; it.repeatUntil=form.repeatUntil||null;
       it.critical=!!form.critical; it.repeatFrom=form.dateStart||TODAY(); it.log={};
@@ -2338,7 +2358,13 @@ function paintForm(){
   if(drop) drop.onclick=()=>{ const c=DB.captures.find(x=>x.id===form.captureId);
     if(c){ c.processed=true; DB.save(); } closeSheet(); render(); toast('Убрано'); };
   const ti=P.querySelector('#f-title');
-  if(ti) ti.onkeydown=e=>{ if(e.key==='Enter'&&(form.type==='capture'||form.type==='thought')) save.click(); };
+  if(ti) ti.onkeydown=e=>{
+    if(e.key!=='Enter') return; e.preventDefault();
+    if(form.type==='capture'||form.type==='thought') return save.click();
+    ti.blur(); grab(); openRow='when'; form._noFocus=true; paintForm(true);
+    const el=panel.querySelector('[data-row="when"]');
+    if(el) setTimeout(()=>el.scrollIntoView({block:'center',behavior:'smooth'}),60);
+  };
 }
 
 const sheetCapture=()=>openForm({mode:'new',type:'capture'});
@@ -2378,8 +2404,7 @@ function sheetItem(id){
       <button class="cta" data-act="undone">Вернуть в работу</button>
       <button class="ghost" data-act="edit">Изменить детали</button>
       <button class="ghost warn" data-act="released">Убрать с глаз</button>
-      <p class="note">Сделанное остаётся видно — это доказательство, а не мусор.</p>
-      <button class="ghost" data-act="delete" style="margin-top:6px;color:var(--ink-3);font-size:13.5px">Удалить сразу и навсегда</button>`
+      <p class="note">Сделанное остаётся видно — это доказательство, а не мусор.</p>`
     : `
       ${it.type==='routine'
         ? `<button class="cta" data-act="run">${it.substeps&&it.substeps.length?`Пройти ${it.substeps.length} ${it.substeps.length===1?'шаг':it.substeps.length<5?'шага':'шагов'}`:'Начать рутину'}</button>
@@ -2458,11 +2483,10 @@ function sheetConfirmDelete(it){
     <p>«${esc(it.title)}» исчезнет сразу и без следа. Отменить будет нельзя.</p>
     <button class="ghost warn" data-del2="yes">Да, удалить</button>
     <button class="cta" data-del2="no">Оставить</button>
-    <p class="note" style="text-align:left;margin:12px 8px">Если сомневаетесь — лучше отпустите: дело полежит две недели, и можно передумать.</p>`);
+    <p class="note" style="text-align:left;margin:12px 8px">Если сомневаетесь — лучше отпустите: дело полежит две недели.</p>`,true);
   panel.querySelectorAll('[data-del2]').forEach(b=>b.onclick=()=>{
     if(b.dataset.del2==='yes'){ removeItem(it.id); closeSheet(); render(); return toast('Удалено'); }
-    closeSheet(); sheetItem(it.id);
-  });
+    closeSheet(); sheetItem(it.id); });
 }
 
 /* выбор приёма вручную */
@@ -2574,7 +2598,7 @@ function runStart(it,tid,mins){
   if(t.run==='reward'){ DB.rewards=DB.rewards||REWARDS_DEFAULT.slice(); }
   RUN={itemId:it.id, tech:t, mode:t.run, step:'', paused:false,
        left:m*60, total:m*60, up:0, mins:m, pauses:0, pauseSec:0, pauseFrom:null};
-  runner.classList.add('open');
+  runner.classList.add('open'); tgBack(true);
   if(t.run==='countdown'||t.run==='together') RUN.tick=setInterval(()=>{
       if(RUN.paused) return;
       if(--RUN.left<=0){ clearInterval(RUN.tick); RUN.tick=null; RUN.left=0; }
@@ -2586,7 +2610,7 @@ function runStart(it,tid,mins){
 }
 function runStop(msg){
   if(RUN&&RUN.tick) clearInterval(RUN.tick);
-  RUN=null; RUNBUDDY=null; runner.classList.remove('open'); render(); toast(msg||'');
+  RUN=null; RUNBUDDY=null; runner.classList.remove('open'); tgBack(tab!=='today'); render(); toast(msg||'');
 }
 function saveTime(it){
   if(RUN.mode==='stopwatch'){ it.actualMinutes=Math.max(1,Math.round(RUN.up/60)); it.pureSeconds=RUN.up; }
@@ -2648,7 +2672,7 @@ function paintRunner(){
 
   if(RUN.mode==='together'){
     const p=Math.round((1-RUN.left/RUN.total)*100);
-    mid=`<div class="buddy"><span class="orb"></span>
+    mid=`<div class="buddy">${RUNBUDDY?'<span class="orb"></span>':miroTag('sm')}
         <span class="t"><b>${RUNBUDDY?esc(RUNBUDDY)+' работает над своим'.replace('над своим','рядом'):'Миро рядом'}</b><span>${RUNBUDDY
           ?'Вы договорились на это время. Каждый над своим.'
           :'Не говорит, не проверяет. Просто здесь, пока ты работаешь.'}</span></span></div>
@@ -2985,8 +3009,10 @@ function wheelSVG(p,size){
   d+=`<circle cx="${cx}" cy="${cy}" r="${(rIn-2).toFixed(1)}" fill="var(--bg-b)" opacity=".92"/>`;
   d+=labels.join('');
   d+='</svg>';
+  const f=miroPick();
   return `<div class="wheelbox" style="width:${S}px;height:${S}px">
     ${d}
+    <span class="wcore"${f?` style="background-image:url('${f}')"`:''}></span>
   </div>`;
 }
 
@@ -3352,11 +3378,12 @@ let ONB={i:0, acc:{}, q:0};
 const ONB_STEPS=['hello','rules','intro','survey','portrait','techs'];
 
 function onbStart(){ ONB={i:0,acc:{},q:0}; onb.classList.add('open'); onbPaint(); }
-function onbNext(){ ONB.i++; if(ONB.i>=ONB_STEPS.length) return onbFinish(); onbPaint(); }
+function onbTouched(){ if(!DB.onboarded){ DB.onboarded=true; DB.saveNow(); } }
+function onbNext(){ onbTouched(); ONB.i++; if(ONB.i>=ONB_STEPS.length) return onbFinish(); onbPaint(); }
 function onbFinish(){
   ONB.acc.at=Date.now();
   DB.portraits=[...(DB.portraits||[]),ONB.acc];
-  DB.onboarded=true; DB.saveNow();
+  DB.onboarded=true; DB.save();
   onb.classList.remove('open'); render();
   setTimeout(tourStart,300);
 }
@@ -3379,7 +3406,7 @@ function onbPaint(){
   let h='';
 
   if(st==='hello') h=`
-    <div class="fade-up" style="text-align:center;margin:8vh 0 30px"></div>
+    <div class="fade-up" style="text-align:center;margin:8vh 0 30px">${miroTag('lg')}</div>
     <div class="fade-up">
       <p class="step">ПЛАНИРОВЩИК</p>
       <h2>В голове всё сразу —<br>и жизнь ощущается<br>как хаос</h2>
@@ -3397,7 +3424,7 @@ function onbPaint(){
 
   if(st==='rules') h=`
     ${bar(0,3)}
-    <div class="fade-up" style="height:2vh"></div>
+    <div class="fade-up" style="text-align:center;margin:2vh 0 24px">${miroTag('lg')}</div>
     <div class="fade-up">
       <p class="step">ПРАВИЛО ДОМА</p>
       <h2>Здесь не стыдят</h2>
@@ -3464,7 +3491,9 @@ function onbPaint(){
   if(st==='techs'){
     const p=ONB.acc, top=topAxis(p)||AXES[0];
     const sug=TECHNIQUES.filter(t=>t.cat===top.k).slice(0,3);
-    h=`<div class="fade-up">
+    h=`<div class="fade-up buddy" style="margin:4vh 0 22px">${miroTag('sm')}
+      <span class="t"><b>Знакомься, это Миро</b><span>Его не нужно кормить или спасать. Он не станет ещё одной обязанностью.</span></span></div>
+    <div class="fade-up">
       <p class="step">СТАРТОВЫЙ ПРОТОКОЛ</p>
       <h2>Три приёма под то, что мешает</h2>
       <p class="lead">Включать ничего не надо — они предложатся сами, когда дело не пойдёт.</p>
@@ -3483,11 +3512,12 @@ function onbPaint(){
 
   onbBody.innerHTML=h;
   onbBody.querySelectorAll('[data-onb]').forEach(b2=>b2.onclick=()=>{
-    if(b2.dataset.onb==='skip'){ DB.onboarded=true; DB.saveNow(); onb.classList.remove('open'); render(); return; }
+    if(b2.dataset.onb==='skip'){ DB.onboarded=true; DB.save(); onb.classList.remove('open'); render(); return; }
     if(b2.dataset.onb==='notif'){ askNotif().then(()=>{ rescheduleNotifs(); onbNext(); }); return; }
     onbNext();
   });
   onbBody.querySelectorAll('[data-oa]').forEach(b2=>b2.onclick=()=>{
+    onbTouched();
     const a3=AXES[ONB.q];
     if(b2.dataset.oa!=='skip') ONB.acc[a3.k]=+b2.dataset.oa;
     ONB.q++;
@@ -3565,10 +3595,7 @@ function tourPaint(){
 
 /* ── события ── */
 document.getElementById('capture').onclick=sheetCapture;
-document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{
-  tab=b.dataset.tab; app.classList.add('fresh'); render();
-  setTimeout(()=>app.classList.remove('fresh'),420);
-});
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{tab=b.dataset.tab;render();tgBack(tab!=='today');tgTap();});
 sheet.addEventListener('click',e=>{ if(e.target.hasAttribute('data-close')) closeSheet(); });
 app.addEventListener('pointerdown',e=>{
   if(tab!=='cases') return;
@@ -3635,14 +3662,9 @@ app.addEventListener('click',e=>{
 /* старт */
 (async()=>{
   await DB.load();
-  DB.seeded=true;
   document.addEventListener('visibilitychange',()=>{ if(document.hidden) DB.saveNow(); });
   window.addEventListener('pagehide',()=>DB.saveNow());
-  /* в браузере iOS чистит хранилище — предупреждаем и зовём установить */
-  const standalone = window.matchMedia('(display-mode: standalone)').matches
-    || window.navigator.standalone === true;
-  if(!standalone && !inTGsafe()) setTimeout(()=>maybeInstallHint(),1400);
-
+  DB.seeded=true;
   const inv=readInvite();
   render();
   if(inv) setTimeout(()=>sheetInviteAccept(inv),260);
