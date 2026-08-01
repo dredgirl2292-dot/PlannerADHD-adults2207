@@ -379,21 +379,20 @@ button:active,.row:active,.frow:active,.chip:active,.wday:active{transform:scale
 .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:56px;
   background:linear-gradient(to top, var(--bg-b), transparent);pointer-events:none}
 .hero > *{position:relative;z-index:1}
-.hero .hh{display:flex;align-items:flex-start;gap:14px}
+.hero .hh{display:flex;align-items:flex-end;gap:12px}
 .hero .hl{flex:1;min-width:0}
-.miro{width:78px;height:86px;flex:none;border-radius:20px;position:relative;
-  background:radial-gradient(circle at 40% 34%,
-    color-mix(in srgb,var(--em) 34%,transparent),
-    color-mix(in srgb,var(--em) 8%,transparent) 62%, transparent 74%);
-  background-size:cover;background-position:center top;background-repeat:no-repeat}
-.miro.has{background-color:transparent}
-.miro::after{content:"";position:absolute;inset:-5px;border-radius:24px;
-  border:1.4px solid color-mix(in srgb,var(--em) 26%,transparent);
+.miro{width:74px;height:96px;flex:none;position:relative;
+  background:radial-gradient(circle at 42% 40%,
+    color-mix(in srgb,var(--em) 30%,transparent),
+    color-mix(in srgb,var(--em) 7%,transparent) 62%, transparent 76%);
+  background-size:contain;background-position:center bottom;background-repeat:no-repeat}
+.miro.has{background-color:transparent;background-image:var(--mi)}
+.miro.has::after{display:none}
+.miro::after{content:"";position:absolute;inset:-4px;border-radius:50%;
+  border:1.4px solid color-mix(in srgb,var(--em) 24%,transparent);
   animation:breathe 5s ease-in-out infinite}
-.miro.sm{width:44px;height:48px;border-radius:14px}
-.miro.sm::after{inset:-3px;border-radius:17px}
-.miro.lg{width:132px;height:146px;border-radius:30px;margin:0 auto}
-.miro.lg::after{inset:-7px;border-radius:36px}
+.miro.sm{width:42px;height:54px}
+.miro.lg{width:150px;height:196px;margin:0 auto;display:block}
 .mood{display:flex;align-items:center;gap:7px;margin-top:6px;font-size:13px;color:var(--ink-2)}
 .mood i{width:8px;height:8px;border-radius:50%;background:var(--em);flex:none}
 .say{background:var(--card);border:1px solid var(--card-line);border-radius:18px 18px 18px 6px;
@@ -1282,7 +1281,7 @@ function miroPick(){
 }
 function miroTag(cls){
   const f=miroPick();
-  return `<span class="miro ${cls||''}${f?' has':''}"${f?` style="background-image:url('${f}')"`:''}></span>`;
+  return `<span class="miro ${cls||''}${f?' has':''}"${f?` style="--mi:url('${f}')"`:''}></span>`;
 }
 /* реплика по состоянию дня */
 function miroSay(){
@@ -1568,7 +1567,7 @@ function sheetEvening(){
     </div>
 
     <div class="buddy">${(done.length>=2&&MIRO.ok.joy)
-      ? `<span class="miro sm has" style="background-image:url('${MIRO.ok.joy}')"></span>`
+      ? `<span class="miro sm has" style="--mi:url('${MIRO.ok.joy}')"></span>`
       : miroTag('sm')}
       <span class="t"><b>Миро</b><span>${word}</span></span></div>
 
