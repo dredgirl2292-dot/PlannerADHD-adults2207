@@ -1266,7 +1266,7 @@ function importData(text){
 
 /* Миро: картинки подхватываются, если лежат рядом */
 const MIRO={ok:{}, files:{calm:'miro-calm.png',dark:'miro-calm-dark.png',
-  curious:'miro-curious.png',listen:'miro-small.png',room:'room.jpg',roomDark:'room-dark.jpg'}};
+  listen:'miro-small.png',joy:'miro-joy.png'}};
 function miroCheck(){
   for(const [k,f] of Object.entries(MIRO.files)){
     const img=new Image();
@@ -1567,7 +1567,9 @@ function sheetEvening(){
       <div class="stat"><i style="background:var(--am)"></i><b>${rel.length}</b><span>отпущено</span></div>
     </div>
 
-    <div class="buddy">${miroTag('sm')}
+    <div class="buddy">${(done.length>=2&&MIRO.ok.joy)
+      ? `<span class="miro sm has" style="background-image:url('${MIRO.ok.joy}')"></span>`
+      : miroTag('sm')}
       <span class="t"><b>Миро</b><span>${word}</span></span></div>
 
     <div class="label" style="margin:0 4px 8px">ЕСЛИ ХОЧЕТСЯ — ЗАПИШИ</div>
