@@ -759,10 +759,15 @@ const Store={
 const DB={
   items:[], captures:[], diary:[], energy:{}, stuck:{}, rewards:[],
   me:'', buddies:[], sessions:[], cal:{on:false,dir:'both',name:'Основной'},
-  portraits:[], theme:'auto', sound:true, soundLog:{}, notifAsked:false, seeded:false,
+  portraits:[], theme:'auto', sound:true, soundLog:{}, notifAsked:false,
+  seeded:false, installHintShown:false,
   async load(){ const d=await Store.get(); if(d) Object.assign(this,d); this.gc(); },
-  save(){ try{ if(typeof rescheduleNotifs==='function') queueMicrotask(rescheduleNotifs); }catch(e){}
-    Store.set({items:this.items,captures:this.captures,diary:this.diary,
+  _t:null,
+  save(){ clearTimeout(this._t);
+    this._t=setTimeout(()=>{ try{ if(typeof rescheduleNotifs==='function') rescheduleNotifs(); }catch(e){}
+      this._flush(); },400); },
+  saveNow(){ clearTimeout(this._t); this._flush(); },
+  _flush(){ Store.set({items:this.items,captures:this.captures,diary:this.diary,
     energy:this.energy,stuck:this.stuck,rewards:this.rewards,
     me:this.me,buddies:this.buddies,sessions:this.sessions,cal:this.cal,
     portraits:this.portraits,theme:this.theme,sound:this.sound,seeded:this.seeded}); },
@@ -789,6 +794,10 @@ function addItem(p={}){
     createdAt:Date.now(), completedAt:null, origin:p.origin||'manual'
   };
   DB.items.push(it); DB.save(); return it;
+}
+function removeItem(id){
+  DB.items=DB.items.filter(x=>x.id!==id);
+  DB.saveNow();
 }
 function moveShelf(id,shelf){
   const it=DB.items.find(x=>x.id===id); if(!it) return;
@@ -1260,6 +1269,30 @@ function importICS(text){
   }
   DB.save(); render();
   toast(added?`Добавлено ${added} ${added===1?'встреча':added<5?'встречи':'встреч'}`:'Новых встреч нет');
+}
+
+const inTGsafe=()=>{ try{ return !!(window.Telegram&&window.Telegram.WebApp&&window.Telegram.WebApp.initData!==undefined); }catch(e){ return false; } };
+
+function maybeInstallHint(){
+  if(DB.installHintShown) return;
+  const ios = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  openSheet(`<div class="handle"></div>
+    <h2>Добавьте на домашний экран</h2>
+    <p>Сейчас приложение открыто как страница — в этом режиме телефон может стирать данные. С домашнего экрана они хранятся надёжно.</p>
+    <div class="rows">
+      <div class="fbody" style="padding:16px">
+        <p class="hint" style="margin:0">${ios
+          ? '<b>На iPhone</b><br>1. Кнопка «Поделиться» внизу — квадрат со стрелкой вверх<br>2. Пролистайте до «На экран „Домой"»<br>3. «Добавить»<br><br>Открывать нужно именно в Safari — в других браузерах пункта нет.'
+          : '<b>На Android</b><br>1. Меню — три точки справа вверху<br>2. «Установить приложение»<br>3. «Установить»'}</p>
+      </div>
+    </div>
+    <button class="cta" data-ih="ok" style="margin-top:14px">Понятно</button>
+    <button class="ghost" data-ih="never">Больше не показывать</button>
+    <p class="note" style="text-align:left;margin:12px 8px">Пока не установили — делайте копию через Профиль → Данные.</p>`);
+  panel.querySelectorAll('[data-ih]').forEach(b=>b.onclick=()=>{
+    if(b.dataset.ih==='never'){ DB.installHintShown=true; DB.saveNow(); }
+    closeSheet();
+  });
 }
 
 /* ── сохранность данных ── */
@@ -1777,12 +1810,40 @@ function viewMe(){
   </div>
   <p class="note" style="text-align:left;margin:10px 8px">Данные хранятся только на этом телефоне. Копию стоит делать раз в неделю — так надёжнее.</p>
 
+  <div class="label">ОЧИСТКА</div>
+  <div class="rows">
+    <div class="frow" data-me="wipe">
+      <span class="body"><span class="tname" style="font-size:15px">Удалить все дела</span>
+      <span class="thelp">полки опустеют · дневник и портрет останутся</span></span>
+      <span class="c">›</span></div>
+  </div>
+
   <div class="label">ПОДПИСКА</div>
   <div class="rows">
     <div class="frow"><span class="k">Premium</span><span class="v set">активен</span></div>
     <div class="frow"><span class="k">Отменить</span><span class="v">в любой момент</span></div>
   </div>
   <p class="note">После отмены всё останется до конца оплаченного периода. Данные не удаляются.</p>`;
+}
+
+function sheetWipe(){
+  const n=DB.items.length, c=DB.captures.filter(x=>!x.processed).length;
+  openSheet(`<div class="handle"></div>
+    <h2>Удалить все дела?</h2>
+    <p>Исчезнет ${n} ${n===1?'дело':n<5?'дела':'дел'}${c?` и ${c} записей из пойманного`:''} — со всех полок сразу.</p>
+    <div class="rows">
+      <div class="fbody" style="padding:16px"><p class="hint" style="margin:0">
+      Дневник, портрет и настройки останутся. Удалятся только задачи, рутины и встречи.</p></div>
+    </div>
+    <button class="ghost warn" data-wipe="yes" style="margin-top:14px">Да, очистить полки</button>
+    <button class="cta" data-wipe="no">Отмена</button>
+    <p class="note" style="text-align:left;margin:12px 8px">Перед очисткой стоит сохранить копию — на случай, если передумаете.</p>`);
+  panel.querySelectorAll('[data-wipe]').forEach(b=>b.onclick=()=>{
+    if(b.dataset.wipe==='yes'){
+      DB.items=[]; DB.captures=[]; DB.saveNow(); closeSheet(); render(); return toast('Полки пусты');
+    }
+    closeSheet();
+  });
 }
 
 function sheetImport(){
@@ -1985,7 +2046,9 @@ function viewStub(title,sub){
   <div class="plate"><div class="empty"><b>Скоро</b>Этот раздел появится в следующей сборке.</div></div>`;
 }
 
-function render(){
+let RAF=null;
+function render(){ if(RAF) return; RAF=requestAnimationFrame(()=>{ RAF=null; renderNow(); }); }
+function renderNow(){
   app.innerHTML = tab==='today'?viewToday()
     : tab==='cases'?viewCases()
     : tab==='library'?viewLibrary()
@@ -2315,7 +2378,8 @@ function sheetItem(id){
       <button class="cta" data-act="undone">Вернуть в работу</button>
       <button class="ghost" data-act="edit">Изменить детали</button>
       <button class="ghost warn" data-act="released">Убрать с глаз</button>
-      <p class="note">Сделанное остаётся видно — это доказательство, а не мусор.</p>`
+      <p class="note">Сделанное остаётся видно — это доказательство, а не мусор.</p>
+      <button class="ghost" data-act="delete" style="margin-top:6px;color:var(--ink-3);font-size:13.5px">Удалить сразу и навсегда</button>`
     : `
       ${it.type==='routine'
         ? `<button class="cta" data-act="run">${it.substeps&&it.substeps.length?`Пройти ${it.substeps.length} ${it.substeps.length===1?'шаг':it.substeps.length<5?'шага':'шагов'}`:'Начать рутину'}</button>
@@ -2349,10 +2413,12 @@ function sheetItem(id){
         <button class="ghost" data-act="frozen">В морозилку</button>
       </div>
       <button class="ghost warn" data-act="released">Отпустить</button>
-      <p class="note">Отпустить — тоже способ завершить.</p>`}`);
+      <p class="note">Отпустить — тоже способ завершить. Дело полежит две недели и исчезнет.</p>
+      <button class="ghost" data-act="delete" style="margin-top:6px;color:var(--ink-3);font-size:13.5px">Удалить сразу и навсегда</button>`}`);
 
   panel.querySelectorAll('[data-act]').forEach(b=>b.onclick=()=>{
     const a=b.dataset.act;
+    if(a==='delete'){ closeSheet(); return sheetConfirmDelete(it); }
     if(a==='edit')  return openEdit(it);
     if(a==='run')   { closeSheet(); return routineStart(it); }
     if(a==='start') { closeSheet(); return askEstimate(it,tid); }
@@ -2384,6 +2450,19 @@ function askEstimate(it,tid){
     go(b.dataset.est==='skip'?null:+b.dataset.est));
   panel.querySelector('#est-go').onclick=()=>go(own&&own.value?+own.value:null);
   if(own) own.onkeydown=e=>{ if(e.key==='Enter') go(+own.value||null); };
+}
+
+function sheetConfirmDelete(it){
+  openSheet(`<div class="handle"></div>
+    <h2>Удалить навсегда?</h2>
+    <p>«${esc(it.title)}» исчезнет сразу и без следа. Отменить будет нельзя.</p>
+    <button class="ghost warn" data-del2="yes">Да, удалить</button>
+    <button class="cta" data-del2="no">Оставить</button>
+    <p class="note" style="text-align:left;margin:12px 8px">Если сомневаетесь — лучше отпустите: дело полежит две недели, и можно передумать.</p>`);
+  panel.querySelectorAll('[data-del2]').forEach(b=>b.onclick=()=>{
+    if(b.dataset.del2==='yes'){ removeItem(it.id); closeSheet(); render(); return toast('Удалено'); }
+    closeSheet(); sheetItem(it.id);
+  });
 }
 
 /* выбор приёма вручную */
@@ -3277,7 +3356,7 @@ function onbNext(){ ONB.i++; if(ONB.i>=ONB_STEPS.length) return onbFinish(); onb
 function onbFinish(){
   ONB.acc.at=Date.now();
   DB.portraits=[...(DB.portraits||[]),ONB.acc];
-  DB.onboarded=true; DB.save();
+  DB.onboarded=true; DB.saveNow();
   onb.classList.remove('open'); render();
   setTimeout(tourStart,300);
 }
@@ -3404,7 +3483,7 @@ function onbPaint(){
 
   onbBody.innerHTML=h;
   onbBody.querySelectorAll('[data-onb]').forEach(b2=>b2.onclick=()=>{
-    if(b2.dataset.onb==='skip'){ DB.onboarded=true; DB.save(); onb.classList.remove('open'); render(); return; }
+    if(b2.dataset.onb==='skip'){ DB.onboarded=true; DB.saveNow(); onb.classList.remove('open'); render(); return; }
     if(b2.dataset.onb==='notif'){ askNotif().then(()=>{ rescheduleNotifs(); onbNext(); }); return; }
     onbNext();
   });
@@ -3486,7 +3565,10 @@ function tourPaint(){
 
 /* ── события ── */
 document.getElementById('capture').onclick=sheetCapture;
-document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{tab=b.dataset.tab;render()});
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{
+  tab=b.dataset.tab; app.classList.add('fresh'); render();
+  setTimeout(()=>app.classList.remove('fresh'),420);
+});
 sheet.addEventListener('click',e=>{ if(e.target.hasAttribute('data-close')) closeSheet(); });
 app.addEventListener('pointerdown',e=>{
   if(tab!=='cases') return;
@@ -3531,6 +3613,7 @@ app.addEventListener('click',e=>{
     if(k==='sound')  return sheetSound();
     if(k==='tour'){ tab='today'; render(); return setTimeout(tourStart,120); }
     if(k==='home') return sheetHome();
+    if(k==='wipe') return sheetWipe();
     if(k==='export') return exportData();
     if(k==='import') return sheetImport();
   }
@@ -3552,26 +3635,14 @@ app.addEventListener('click',e=>{
 /* старт */
 (async()=>{
   await DB.load();
-  if(!DB.seeded && !DB.items.length && !DB.captures.length){
-    const t=TODAY();
-    addItem({title:'Утро без спешки',type:'routine',dateMode:'day',dateStart:t,timeStart:'09:00'});
-    addItem({title:'Ответить на письмо',dateMode:'datetime',dateStart:t,timeStart:'14:30',estimateMinutes:20});
-    addItem({title:'Встреча с командой',type:'event',dateMode:'datetime',dateStart:t,timeStart:'16:00'});
-    addItem({title:'Отправить Лене макет',dateMode:'day',dateStart:t,promiseTo:'Лене'});
-    addItem({title:'Заказать продукты',dateMode:'none'});
-    addItem({title:'Записаться на курс английского',shelf:'waiting'});
-    addItem({title:'Спортзал — но как?',type:'routine',shelf:'waiting'});
-    addItem({title:'Бокс',type:'routine',shelf:'frozen'});
-    DB.seeded=true; DB.save();
-  }
-  applyTheme();
-  claimStorage();
-  rescheduleNotifs();
-  document.addEventListener('visibilitychange',()=>{ if(!document.hidden) rescheduleNotifs(); });
-  if('serviceWorker' in navigator && location.protocol.startsWith('http')){
-    navigator.serviceWorker.register('sw.js').catch(()=>{});
-  }
-  matchMedia('(prefers-color-scheme:dark)').addEventListener('change',applyTheme);
+  DB.seeded=true;
+  document.addEventListener('visibilitychange',()=>{ if(document.hidden) DB.saveNow(); });
+  window.addEventListener('pagehide',()=>DB.saveNow());
+  /* в браузере iOS чистит хранилище — предупреждаем и зовём установить */
+  const standalone = window.matchMedia('(display-mode: standalone)').matches
+    || window.navigator.standalone === true;
+  if(!standalone && !inTGsafe()) setTimeout(()=>maybeInstallHint(),1400);
+
   const inv=readInvite();
   render();
   if(inv) setTimeout(()=>sheetInviteAccept(inv),260);
