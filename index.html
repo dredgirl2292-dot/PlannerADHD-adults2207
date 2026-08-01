@@ -128,7 +128,6 @@ h1{font-size:30px;font-weight:600;letter-spacing:-.02em;margin:0}
 .sub{color:var(--ink-2);font-size:13.5px;margin:6px 0 0}
 
 /* энергия */
-.energy{display:flex;gap:8px;margin:18px 0 8px}
 .energy button{
   flex:1;border:0;padding:13px 6px;border-radius:20px;font:500 12.5px Onest,sans-serif;
   color:var(--ink-2);background:var(--card);border:1px solid var(--card-line);
@@ -389,18 +388,6 @@ button:active,.row:active,.frow:active,.chip:active,.wday:active{transform:scale
 .hero > *{position:relative;z-index:1}
 .hero .hh{display:flex;align-items:flex-end;gap:12px}
 .hero .hl{flex:1;min-width:0}
-.miro{width:74px;height:96px;flex:none;position:relative;
-  background:radial-gradient(circle at 42% 40%,
-    color-mix(in srgb,var(--em) 30%,transparent),
-    color-mix(in srgb,var(--em) 7%,transparent) 62%, transparent 76%);
-  background-size:contain;background-position:center bottom;background-repeat:no-repeat}
-.miro.has{background-color:transparent;background-image:var(--mi)}
-.miro.has::after{display:none}
-.miro::after{content:"";position:absolute;inset:-4px;border-radius:50%;
-  border:1.4px solid color-mix(in srgb,var(--em) 24%,transparent);
-  animation:breathe 5s ease-in-out infinite}
-.miro.sm{width:42px;height:54px}
-.miro.lg{width:150px;height:196px;margin:0 auto;display:block}
 .mood{display:flex;align-items:center;gap:7px;margin-top:6px;font-size:13px;color:var(--ink-2)}
 .mood i{width:8px;height:8px;border-radius:50%;background:var(--em);flex:none}
 .say{background:var(--card);border:1px solid var(--card-line);border-radius:18px 18px 18px 6px;
@@ -457,11 +444,6 @@ button:active,.row:active,.frow:active,.chip:active,.wday:active{transform:scale
 .wheelbox{position:relative;margin:2px auto 4px;max-width:100%}
 .wheelbox svg{overflow:visible}
 .wheel{display:block}
-.wcore{position:absolute;left:50%;top:50%;width:17%;height:19%;transform:translate(-50%,-52%);
-  background-size:contain;background-position:center;background-repeat:no-repeat;
-  border-radius:50%}
-.wcore:not([style*=url]){background:radial-gradient(circle at 42% 36%,
-  color-mix(in srgb,var(--em) 34%,transparent),color-mix(in srgb,var(--em) 8%,transparent) 66%,transparent)}
 .whint{text-align:center;font:400 12px Onest,sans-serif;color:var(--ink-2);margin:2px 0 10px}
 .plegend{display:flex;flex-direction:column;gap:9px;margin:8px 4px 0}
 .pl{display:flex;align-items:center;gap:10px}
@@ -670,6 +652,53 @@ body.dragmode{overflow:hidden;touch-action:none}
   font:500 14px Onest,sans-serif;opacity:0;pointer-events:none;transition:opacity .2s}
 .toast.show{opacity:.95}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ═══ ТЁМНАЯ ТЕМА: всё, что не покрыто переменными ═══ */
+html[data-theme=dark] .energy,
+html.dark-auto .energy{
+  background:linear-gradient(180deg,rgba(38,54,46,.94),rgba(23,36,31,.9) 55%,rgba(14,23,19,.92)),
+             linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.01) 45%,rgba(0,0,0,.06));
+  border-color:rgba(214,237,222,.13);
+  box-shadow:0 18px 34px -10px rgba(0,0,0,.42),
+             inset 0 1px 2px rgba(255,255,255,.09),
+             inset 0 -7px 12px rgba(0,0,0,.2)}
+html[data-theme=dark] .energy .prompt,
+html.dark-auto .energy .prompt{color:#F4F1E8}
+html[data-theme=dark] .energy button,
+html.dark-auto .energy button{
+  background:linear-gradient(180deg,rgba(42,58,50,.9),rgba(26,39,33,.86) 58%,rgba(17,27,22,.84)),
+             linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.01) 48%,rgba(0,0,0,.05));
+  border-color:rgba(214,237,222,.12);color:#b9c2bc;
+  box-shadow:0 2px 7px rgba(0,0,0,.24),inset 0 1px 2px rgba(255,255,255,.07)}
+html[data-theme=dark] .energy button[aria-pressed=true],
+html.dark-auto .energy button[aria-pressed=true]{
+  background:linear-gradient(180deg,#127a5b,#188f6b 50%,#106b50),
+             linear-gradient(180deg,rgba(199,245,223,.2),rgba(255,255,255,.03) 42%,rgba(0,27,19,.2));
+  border-color:rgba(169,226,204,.34);color:#fff;
+  box-shadow:0 3px 11px rgba(0,0,0,.34),inset 0 1px 2px rgba(255,255,255,.22)}
+html[data-theme=dark] .energy button:not([aria-pressed=true]) .ico,
+html.dark-auto .energy button:not([aria-pressed=true]) .ico{stroke:#7fc4ab}
+
+html[data-theme=dark] .stat,
+html.dark-auto .stat{background:var(--card);border-color:var(--card-line)}
+
+html[data-theme=dark] .maincard .cta2,
+html.dark-auto .maincard .cta2{
+  background:linear-gradient(180deg,rgba(74,56,32,.92),rgba(56,42,25,.9) 56%,rgba(40,30,18,.9));
+  border-color:rgba(189,148,92,.24);color:#F0EAE0;
+  box-shadow:0 4px 10px rgba(0,0,0,.3),inset 0 1px 3px rgba(255,255,255,.08)}
+html[data-theme=dark] .maincard .star,
+html.dark-auto .maincard .star{color:#E8942E;opacity:.9}
+
+html[data-theme=dark] .conflict,
+html.dark-auto .conflict{background:rgba(232,168,182,.15);color:#E8A8B6}
+
+html[data-theme=dark] .toast,
+html.dark-auto .toast{background:#F4F1E8;color:#101a15}
+
+html[data-theme=dark] .ring .core,
+html.dark-auto .ring .core{background:radial-gradient(circle at 40% 34%,rgba(46,163,124,.16),transparent 70%),var(--card)}
+
 </style>
 </head>
 <body>
@@ -1290,6 +1319,7 @@ function applyTheme(){
   if(t==='auto') html.removeAttribute('data-theme');
   else html.setAttribute('data-theme',t);
   const dark = t==='dark' || (t==='auto' && matchMedia('(prefers-color-scheme:dark)').matches);
+  html.classList.toggle('dark-auto', t==='auto' && dark);
   const m=document.querySelector('meta[name=theme-color]');
   if(m) m.setAttribute('content', dark?'#0A1512':'#F9F2E7');
 }
@@ -1415,7 +1445,7 @@ function viewToday(){
   const capt=DB.captures.filter(c=>!c.processed).length;
 
   return `<div class="hero">
-    <div class="hh">
+    <div class="hh" style="display:block">
       <div class="hl">
         <p class="sub" data-week style="cursor:pointer;margin:0 0 4px">${new Date().toLocaleDateString('ru',{weekday:'long',day:'numeric',month:'long'})} · неделя ›</p>
         <h1 style="margin:0">Сегодня</h1>
