@@ -30,8 +30,33 @@
   --plate-sh:0 7px 20px rgba(77,61,38,.13),inset 0 1px 4px rgba(255,255,255,.5),inset 0 -1px 9px rgba(94,69,38,.04);
   --card-sh:0 20px 34px -12px rgba(120,104,82,.16),inset 0 4px 6px rgba(255,255,255,.5),inset 0 -9px 14px rgba(160,130,90,.05);
   --ink-row:#1a211f; --ink-time:#404745; --ink-sub:#6e6558; --rail-line:#d6ded8;
+  /* энергоселектор */
+  --en-bg:linear-gradient(180deg,rgba(255,253,249,.94),rgba(248,240,230,.88) 55%,rgba(237,225,210,.82)),
+          linear-gradient(180deg,rgba(255,255,255,.42),rgba(255,255,255,.06) 40%,rgba(157,127,88,.05));
+  --en-line:rgba(255,255,255,.78);
+  --en-sh:0 18px 34px -10px rgba(120,104,82,.18),inset 0 2px 2px rgba(255,255,255,.5),inset 0 -7px 12px rgba(150,120,80,.06);
+  --seg-bg:linear-gradient(180deg,rgba(255,253,249,.91),rgba(246,238,228,.84) 58%,rgba(234,220,203,.78)),
+           linear-gradient(180deg,rgba(255,255,255,.46),rgba(255,255,255,.02) 48%,rgba(142,112,76,.05));
+  --seg-line:rgba(255,255,255,.82);
+  --seg-sh:0 2px 7px rgba(122,98,67,.09),inset 0 1px 2px rgba(255,255,255,.58),inset 0 -1px 5px rgba(114,89,57,.05);
+  --seg-ink:#4a5450; --en-prompt:#27312d;
+  --cta2-bg:linear-gradient(180deg,#fefaf3,#fbf3e6 56%,#f8ecda);
+  --cta2-line:rgba(189,148,92,.10); --cta2-ink:#3f4a45;
+  --cta2-sh:0 4px 10px rgba(92,64,31,.11),inset 0 1px 3px rgba(255,255,255,.42),inset 0 -1px 5px rgba(79,51,18,.07);
 }
 html[data-theme=dark]{
+  --en-bg:linear-gradient(180deg,rgba(38,54,46,.92),rgba(23,36,31,.9) 55%,rgba(14,23,19,.92)),
+          linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.01) 40%,rgba(0,0,0,.1));
+  --en-line:rgba(214,237,222,.13);
+  --en-sh:0 18px 34px -10px rgba(0,0,0,.42),inset 0 1px 2px rgba(255,255,255,.08),inset 0 -6px 12px rgba(0,0,0,.2);
+  --seg-bg:linear-gradient(180deg,rgba(40,57,48,.94),rgba(26,40,34,.9) 58%,rgba(17,27,22,.92)),
+           linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.01) 48%,rgba(0,0,0,.1));
+  --seg-line:rgba(214,237,222,.12);
+  --seg-sh:0 2px 7px rgba(0,0,0,.3),inset 0 1px 2px rgba(255,255,255,.07),inset 0 -1px 5px rgba(0,0,0,.16);
+  --seg-ink:#c2c9c3; --en-prompt:#F4F1E8;
+  --cta2-bg:linear-gradient(180deg,rgba(79,59,33,.92),rgba(59,43,26,.9) 56%,rgba(41,31,19,.92));
+  --cta2-line:rgba(189,148,92,.22); --cta2-ink:#F0E6D6;
+  --cta2-sh:0 4px 10px rgba(0,0,0,.3),inset 0 1px 3px rgba(255,255,255,.08),inset 0 -1px 5px rgba(0,0,0,.2);
   --plate-bg:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.01) 56%,rgba(0,0,0,.04)),rgba(22,35,28,.66);
   --plate-line:rgba(255,255,255,.09);
   --plate-sh:0 7px 20px rgba(0,0,0,.34),inset 0 1px 3px rgba(255,255,255,.07),inset 0 -1px 8px rgba(0,0,0,.18);
@@ -48,6 +73,18 @@ html[data-theme=dark]{
 }
 @media (prefers-color-scheme:dark){
   html:not([data-theme=light]) {
+  --en-bg:linear-gradient(180deg,rgba(38,54,46,.92),rgba(23,36,31,.9) 55%,rgba(14,23,19,.92)),
+          linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.01) 40%,rgba(0,0,0,.1));
+  --en-line:rgba(214,237,222,.13);
+  --en-sh:0 18px 34px -10px rgba(0,0,0,.42),inset 0 1px 2px rgba(255,255,255,.08),inset 0 -6px 12px rgba(0,0,0,.2);
+  --seg-bg:linear-gradient(180deg,rgba(40,57,48,.94),rgba(26,40,34,.9) 58%,rgba(17,27,22,.92)),
+           linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.01) 48%,rgba(0,0,0,.1));
+  --seg-line:rgba(214,237,222,.12);
+  --seg-sh:0 2px 7px rgba(0,0,0,.3),inset 0 1px 2px rgba(255,255,255,.07),inset 0 -1px 5px rgba(0,0,0,.16);
+  --seg-ink:#c2c9c3; --en-prompt:#F4F1E8;
+  --cta2-bg:linear-gradient(180deg,rgba(79,59,33,.92),rgba(59,43,26,.9) 56%,rgba(41,31,19,.92));
+  --cta2-line:rgba(189,148,92,.22); --cta2-ink:#F0E6D6;
+  --cta2-sh:0 4px 10px rgba(0,0,0,.3),inset 0 1px 3px rgba(255,255,255,.08),inset 0 -1px 5px rgba(0,0,0,.2);
   --plate-bg:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.01) 56%,rgba(0,0,0,.04)),rgba(22,35,28,.66);
   --plate-line:rgba(255,255,255,.09);
   --plate-sh:0 7px 20px rgba(0,0,0,.34),inset 0 1px 3px rgba(255,255,255,.07),inset 0 -1px 8px rgba(0,0,0,.18);
@@ -81,7 +118,7 @@ body::after{width:300px;height:300px;left:-110px;bottom:120px;background:radial-
 
 .app{position:relative;z-index:1;width:100%;max-width:430px;margin:0 auto;padding:0 14px 130px;min-height:100%}
 @media (min-width:520px){
-  body{background:#e8e2d8}
+  body{background:var(--bg-c)}
   html[data-theme=dark] body,
   body:has(#app){min-height:100vh}
   .app{max-width:430px;box-shadow:0 0 0 1px rgba(0,0,0,.06)}
@@ -215,26 +252,20 @@ nav{position:fixed;left:0;right:0;bottom:0;z-index:5;
 
 /* энергоселектор: 406x92 @12,182 r28 */
 .energy{position:relative;margin:8px -6px 0;padding:5px 8px 8px;height:92px;border-radius:28px;
-  background:linear-gradient(180deg,rgba(255,253,249,.94),rgba(248,240,230,.88) 55%,rgba(237,225,210,.82)),
-             linear-gradient(180deg,rgba(255,255,255,.42),rgba(255,255,255,.06) 40%,rgba(157,127,88,.05));
-  border:.9px solid rgba(255,255,255,.78);
+  background:var(--en-bg);
+  border:.9px solid var(--en-line);
   backdrop-filter:blur(20px);
-  box-shadow:0 18px 34px -10px rgba(120,104,82,.18),
-             inset 0 2px 2px rgba(255,255,255,.5),
-             inset 0 -7px 12px rgba(150,120,80,.06);
+  box-shadow:var(--en-sh);
   display:block}
-.energy .prompt{font:600 14px Onest,sans-serif;color:#27312d;text-align:center;margin:0 0 9px;line-height:17px}
+.energy .prompt{font:600 14px Onest,sans-serif;color:var(--en-prompt);text-align:center;margin:0 0 9px;line-height:17px}
 .energy .segs{display:flex;gap:6px;height:48px}
 .energy button{position:relative;flex:1;height:48px;border-radius:24px;
-  font:500 11.5px Onest,sans-serif;line-height:13px;color:#4a5450;cursor:pointer;
+  font:500 11.5px Onest,sans-serif;line-height:13px;color:var(--seg-ink);cursor:pointer;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   padding:5px 4px 6px;gap:4px;
-  background:linear-gradient(180deg,rgba(255,253,249,.91),rgba(246,238,228,.84) 58%,rgba(234,220,203,.78)),
-             linear-gradient(180deg,rgba(255,255,255,.46),rgba(255,255,255,.02) 48%,rgba(142,112,76,.05));
-  border:.8px solid rgba(255,255,255,.82);
-  box-shadow:0 2px 7px rgba(122,98,67,.09),
-             inset 0 1px 2px rgba(255,255,255,.58),
-             inset 0 -1px 5px rgba(114,89,57,.05)}
+  background:var(--seg-bg);
+  border:.8px solid var(--seg-line);
+  box-shadow:var(--seg-sh)}
 .energy button[aria-pressed=true]{color:#fff;font-weight:600;
   background:linear-gradient(180deg,#287c5e,#0f5d45 50%,#073a2b),
              linear-gradient(180deg,rgba(199,245,223,.28),rgba(255,255,255,.04) 42%,rgba(0,27,19,.18));
@@ -253,7 +284,7 @@ nav{position:fixed;left:0;right:0;bottom:0;z-index:5;
 .energy .ico{width:19px;height:19px;stroke-width:1.5;fill:none;opacity:1;flex:none}
 .energy .ico[viewBox="0 0 20 10"]{width:22px;height:11px}
 .energy button[aria-pressed=true] .ico{stroke:rgba(255,255,255,.97)}
-.energy button:not([aria-pressed=true]) .ico{stroke:rgba(42,106,84,.92)}
+.energy button:not([aria-pressed=true]) .ico{stroke:var(--em);opacity:.9}
 
 /* главная карточка: пропорции 402x164 из макета */
 .maincard{position:relative;min-height:164px;border-radius:22px;margin:14px 0 0;padding:14px 16px 16px;
@@ -280,36 +311,13 @@ nav{position:fixed;left:0;right:0;bottom:0;z-index:5;
   display:flex;align-items:center;justify-content:center;gap:6px;overflow:hidden}
 .maincard .cta1 .gloss{left:25px;top:-7px;width:78px;height:31px;background:rgba(199,255,233,.05)}
 .maincard .cta2{width:128px;height:40px;border-radius:20px;flex:none;
-  border:.5px solid rgba(189,148,92,.10);font:600 13px Onest,sans-serif;color:#3f4a45;cursor:pointer;
-  background:linear-gradient(180deg,#fefaf3,#fbf3e6 56%,#f8ecda);
-  box-shadow:0 4px 10px rgba(92,64,31,.11),inset 0 1px 3px rgba(255,255,255,.42),inset 0 -1px 5px rgba(79,51,18,.07);
+  border:.5px solid var(--cta2-line);font:600 13px Onest,sans-serif;color:var(--cta2-ink);cursor:pointer;
+  background:var(--cta2-bg);
+  box-shadow:var(--cta2-sh);
   display:flex;align-items:center;justify-content:center;gap:6px;overflow:hidden}
 .maincard .cta2 .gloss{left:13px;top:-7px;width:66px;height:22px;background:rgba(255,255,255,.09);filter:blur(14px)}
 .mclock{width:14px;height:14px;flex:none;opacity:.9}
 
-@media (prefers-color-scheme:dark){
-  html:not([data-theme=light]) .energy{
-    background:linear-gradient(180deg,rgba(38,54,46,.92),rgba(23,36,31,.88) 55%,rgba(14,23,19,.92));
-    border-color:rgba(214,237,222,.14);
-    box-shadow:0 18px 34px -10px rgba(0,0,0,.4),inset 0 1px 3px rgba(255,255,255,.1)}
-  html:not([data-theme=light]) .energy .prompt{color:#F4F1E8}
-  html:not([data-theme=light]) .energy button{
-    background:linear-gradient(180deg,rgba(38,54,46,.92),rgba(23,36,31,.88) 55%,rgba(14,23,19,.92));
-    border-color:rgba(214,237,222,.14);color:#c2c9c3}
-  html:not([data-theme=light]) .maincard{
-    background-color:rgba(22,35,28,.72);border-color:rgba(255,255,255,.08);
-    box-shadow:0 20px 34px -12px rgba(0,0,0,.42),inset 0 1px 2px rgba(255,255,255,.08)}
-  html:not([data-theme=light]) .maincard .ttl{color:#F4F1E8}
-  html:not([data-theme=light]) .maincard .eyebrow,
-  html:not([data-theme=light]) .maincard .step{color:#9AA49E}
-  html:not([data-theme=light]) .maincard .meta{color:#b6c1bc}
-  html:not([data-theme=light]) .maincard .cta2{
-    background:linear-gradient(180deg,rgba(79,59,33,.9),rgba(59,43,26,.9) 55%,rgba(41,31,19,.9));
-    border-color:rgba(189,148,92,.2);color:#F4F1E8}
-}
-html[data-theme=dark] .energy{background:linear-gradient(180deg,rgba(38,54,46,.92),rgba(23,36,31,.88) 55%,rgba(14,23,19,.92));border-color:rgba(214,237,222,.14)}
-html[data-theme=dark] .energy .prompt{color:#F4F1E8}
-html[data-theme=dark] .energy button{background:linear-gradient(180deg,rgba(38,54,46,.92),rgba(23,36,31,.88) 55%,rgba(14,23,19,.92));border-color:rgba(214,237,222,.14);color:#c2c9c3}
 html[data-theme=dark] .maincard{background-color:rgba(22,35,28,.72);border-color:rgba(255,255,255,.08)}
 html[data-theme=dark] .maincard .ttl{color:#F4F1E8}
 html[data-theme=dark] .maincard .eyebrow,html[data-theme=dark] .maincard .step{color:#9AA49E}
@@ -482,7 +490,7 @@ button:active,.row:active,.frow:active,.chip:active,.wday:active{transform:scale
 .wday.sel .load i{background:#fff}
 
 /* совместный фокус */
-.buddy{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--card-line);
+.buddy{display:flex;align-items:center;gap:0;background:var(--card);border:1px solid var(--card-line);
   border-radius:20px;padding:16px;margin:0 0 14px;backdrop-filter:blur(12px);text-align:left}
 .buddy .orb{width:48px;height:48px;border-radius:50%;flex:none;position:relative;
   background:radial-gradient(circle at 35% 30%,color-mix(in srgb,var(--em) 45%,transparent),color-mix(in srgb,var(--em) 10%,transparent))}
@@ -1263,26 +1271,6 @@ function importData(text){
   toast('Восстановлено: '+DB.items.length+' дел');
 }
 
-/* Миро: картинки подхватываются, если лежат рядом */
-const MIRO={ok:{}, files:{calm:'miro-calm.png',dark:'miro-calm-dark.png',
-  listen:'miro-small.png',joy:'miro-joy.png'}};
-function miroCheck(){
-  for(const [k,f] of Object.entries(MIRO.files)){
-    const img=new Image();
-    img.onload=()=>{ MIRO.ok[k]=f; render(); };
-    img.onerror=()=>{};
-    img.src=f;
-  }
-}
-function miroPick(){
-  const dark = document.documentElement.getAttribute('data-theme')==='dark'
-    || (!document.documentElement.getAttribute('data-theme') && matchMedia('(prefers-color-scheme:dark)').matches);
-  return (dark && MIRO.ok.dark) || MIRO.ok.calm || MIRO.ok.curious || null;
-}
-function miroTag(cls){
-  const f=miroPick();
-  return `<span class="miro ${cls||''}${f?' has':''}"${f?` style="--mi:url('${f}')"`:''}></span>`;
-}
 /* реплика по состоянию дня */
 function miroSay(){
   const e=energyToday(), left=todayFeed().filter(x=>!isDoneToday(x)).length;
@@ -1431,9 +1419,9 @@ function viewToday(){
       <div class="hl">
         <p class="sub" data-week style="cursor:pointer;margin:0 0 4px">${new Date().toLocaleDateString('ru',{weekday:'long',day:'numeric',month:'long'})} · неделя ›</p>
         <h1 style="margin:0">Сегодня</h1>
-        <div class="mood"><i></i>Миро спокоен</div>
+
       </div>
-      ${miroTag()}
+      
     </div>
     <div class="say">${miroSay()}</div>
   </div>
@@ -1566,10 +1554,8 @@ function sheetEvening(){
       <div class="stat"><i style="background:var(--am)"></i><b>${rel.length}</b><span>отпущено</span></div>
     </div>
 
-    <div class="buddy">${(done.length>=2&&MIRO.ok.joy)
-      ? `<span class="miro sm has" style="--mi:url('${MIRO.ok.joy}')"></span>`
-      : miroTag('sm')}
-      <span class="t"><b>Миро</b><span>${word}</span></span></div>
+    <div class="buddy">
+      <span class="t"><span>${word}</span></span></div>
 
     <div class="label" style="margin:0 4px 8px">ЕСЛИ ХОЧЕТСЯ — ЗАПИШИ</div>
     <input class="field" id="ev-q" placeholder="Что хочешь запомнить? Можно одним словом" autocomplete="off">
@@ -1699,10 +1685,6 @@ function viewMe(){
 
   <div class="label">О СЕБЕ</div>
   <div class="rows">
-    <div class="frow" data-me="home">
-      <span class="body"><span class="tname" style="font-size:15px">Дом Миро</span>
-      <span class="thelp">комната, которая обживается находками</span></span>
-      <span class="v">скоро</span></div>
     <div class="frow" data-me="mirror">
       <span class="body"><span class="tname" style="font-size:15px">Зеркало · портрет сложностей</span>
       <span class="thelp">${p?'Сейчас мешает больше всего: '+top.name.toLowerCase():'Пять вопросов — покажут, что мешает довести дела до конца'}</span></span>
@@ -1796,7 +1778,6 @@ function sheetImport(){
 function sheetHome(){
   const finds=DB.items.filter(x=>x.completedAt).length + DB.items.filter(x=>x.shelf==='released').length;
   openSheet(`<div class="handle"></div>
-    <div style="text-align:center;margin:6px 0 18px">${miroTag('lg')}</div>
     <h2 style="text-align:center">Дом Миро</h2>
     <p style="text-align:center">Комната, которая обживается сама — за прожитые недели, попробованные приёмы и отпущенные дела.</p>
     <div class="rows">
@@ -2558,7 +2539,7 @@ function paintRunner(){
 
   if(RUN.mode==='together'){
     const p=Math.round((1-RUN.left/RUN.total)*100);
-    mid=`<div class="buddy">${RUNBUDDY?'<span class="orb"></span>':miroTag('sm')}
+    mid=`<div class="buddy"><span class="orb"></span>
         <span class="t"><b>${RUNBUDDY?esc(RUNBUDDY)+' работает над своим'.replace('над своим','рядом'):'Миро рядом'}</b><span>${RUNBUDDY
           ?'Вы договорились на это время. Каждый над своим.'
           :'Не говорит, не проверяет. Просто здесь, пока ты работаешь.'}</span></span></div>
@@ -2895,10 +2876,8 @@ function wheelSVG(p,size){
   d+=`<circle cx="${cx}" cy="${cy}" r="${(rIn-2).toFixed(1)}" fill="var(--bg-b)" opacity=".92"/>`;
   d+=labels.join('');
   d+='</svg>';
-  const f=miroPick();
   return `<div class="wheelbox" style="width:${S}px;height:${S}px">
     ${d}
-    <span class="wcore"${f?` style="background-image:url('${f}')"`:''}></span>
   </div>`;
 }
 
@@ -3291,7 +3270,7 @@ function onbPaint(){
   let h='';
 
   if(st==='hello') h=`
-    <div class="fade-up" style="text-align:center;margin:8vh 0 30px">${miroTag('lg')}</div>
+    <div class="fade-up" style="text-align:center;margin:8vh 0 30px"></div>
     <div class="fade-up">
       <p class="step">ПЛАНИРОВЩИК</p>
       <h2>В голове всё сразу —<br>и жизнь ощущается<br>как хаос</h2>
@@ -3309,7 +3288,7 @@ function onbPaint(){
 
   if(st==='rules') h=`
     ${bar(0,3)}
-    <div class="fade-up" style="text-align:center;margin:2vh 0 24px">${miroTag('lg')}</div>
+    <div class="fade-up" style="height:2vh"></div>
     <div class="fade-up">
       <p class="step">ПРАВИЛО ДОМА</p>
       <h2>Здесь не стыдят</h2>
@@ -3376,9 +3355,7 @@ function onbPaint(){
   if(st==='techs'){
     const p=ONB.acc, top=topAxis(p)||AXES[0];
     const sug=TECHNIQUES.filter(t=>t.cat===top.k).slice(0,3);
-    h=`<div class="fade-up buddy" style="margin:4vh 0 22px">${miroTag('sm')}
-      <span class="t"><b>Знакомься, это Миро</b><span>Его не нужно кормить или спасать. Он не станет ещё одной обязанностью.</span></span></div>
-    <div class="fade-up">
+    h=`<div class="fade-up">
       <p class="step">СТАРТОВЫЙ ПРОТОКОЛ</p>
       <h2>Три приёма под то, что мешает</h2>
       <p class="lead">Включать ничего не надо — они предложатся сами, когда дело не пойдёт.</p>
@@ -3559,7 +3536,6 @@ app.addEventListener('click',e=>{
   }
   applyTheme();
   claimStorage();
-  miroCheck();
   rescheduleNotifs();
   document.addEventListener('visibilitychange',()=>{ if(!document.hidden) rescheduleNotifs(); });
   if('serviceWorker' in navigator && location.protocol.startsWith('http')){
